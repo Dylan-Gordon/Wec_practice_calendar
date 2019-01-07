@@ -1,8 +1,6 @@
 
 public class Event {
-	private int month;
-	private int day;
-	
+	private Date startDate;
 	
 	public Event() {
 		// TODO Auto-generated constructor stub
