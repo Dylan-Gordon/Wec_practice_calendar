@@ -57,25 +57,46 @@ public class GUIController{
 		public void actionPerformed(ActionEvent arg0) {
 			
 			String eventName = JOptionPane.showInputDialog( "What's the events name?");
+			if(eventName == null) {
+				JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			
-			String startTimeString = JOptionPane.showInputDialog( "What's the events startTime (hh:mm)?");
+			String startTimeString = JOptionPane.showInputDialog( "What's the events start time (hh:mm)?");
 			Time startTime = convertToTime(startTimeString);
-			System.out.println(startTime.getHours() + startTime.getMinutes());
+			if(startTime == null) {
+				return;
+			}
 			
-			String durationString = JOptionPane.showInputDialog( "What's the events name (hh:mm)?");
+			String durationString = JOptionPane.showInputDialog( "What's the events duration (hh:mm)?");
 			Time duration =  convertToTime(durationString);
+			if(duration == null) {
+				return;
+			}
 			
-
 			Date currentDay = gui.getDayPanel().getDate();
 			
 			userCalender.addEvent(new Event(currentDay, startTime, duration, eventName));
-			
 			refreshEventList(currentDay, gui.getDayPanel());
+
 		}
 		
 		private Time convertToTime (String time) {
-			String[] parts = time.split(":");
-			Time returnVal = new Time(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+			Time returnVal = null;
+			try {
+				String[] parts = time.split(":");
+				returnVal = new Time(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+			}
+			catch(NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Improper time format", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+			catch(NullPointerException e) {
+				JOptionPane.showMessageDialog(null, "Please enter a value for the time", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				JOptionPane.showMessageDialog(null, "Improper time format", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+			
 			
 			return returnVal;
 		}
