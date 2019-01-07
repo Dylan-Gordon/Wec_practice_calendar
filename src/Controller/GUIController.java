@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Model.Calender;
-import View.GUI;
+import SharedObjects.Date;
+import View.*;
 
 /**
  * Sets all the button listeners on the Prof GUIs
@@ -31,8 +32,26 @@ public class GUIController{
 		g.getButtonPanel().setDayButtonListener(new CardChangerListener("DAYPANEL"));
 		
 		userCalender = Calender.getInstance();
+		
+		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
 	}
 	
+	/**
+	 * Inner class listener for dayButtons on MonthlyView
+	 */
+	class DayButtonListener implements ActionListener {
+	
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object obj = e.getSource();
+			if( obj instanceof DayButton) {
+				DayButton dButton = (DayButton)obj;
+				gui.setActiveCard("DAYPANEL");
+				
+			}
+
+		}
+	}
 	/**
 	 * Inner class listener to switch the active card on the ProfGUI using either the BackToHomepage or Back buttons
 	 */
@@ -54,7 +73,15 @@ public class GUIController{
 			}
 			gui.setActiveCard(card);
 		}
-
-
+	} //end of inner class ChagneCardListener
+	
+	
+	
+	public void refreshDayView(Date d) {
+		gui.getDayPanel().setDay(d);
+		
 	}
+
+	
 }
+

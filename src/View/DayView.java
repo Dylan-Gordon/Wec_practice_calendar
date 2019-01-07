@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -15,8 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 
-import Model.Date;
-import Model.Event;
+import SharedObjects.Date;
+import SharedObjects.Event;
 
 @SuppressWarnings("serial")
 public class DayView extends JPanel{
@@ -52,6 +51,7 @@ public class DayView extends JPanel{
 	
 	public void setDay(Date d) {
 		day = d;
+		fillContentPane();
 	}
 	
 
@@ -66,7 +66,6 @@ public class DayView extends JPanel{
 		
 		setupEventsList();
 	
-
 		viewEventInfoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(viewEventInfoButton);
 		
@@ -115,6 +114,7 @@ public class DayView extends JPanel{
 	public void setNewEventButtonListener(ActionListener e) {
         addEventButton.addActionListener(e);
     }
+	
 
 	
 }

@@ -2,7 +2,7 @@ package View;
 
 import javax.swing.JButton;
 
-import Model.Date;
+import SharedObjects.Date;
 
 public class DayButton extends JButton{
 	
@@ -12,6 +12,11 @@ public class DayButton extends JButton{
 		// TODO Auto-generated constructor stub
 		super(""+d.getDay());
 		day = d;
+	}
+	
+	
+	public Date getDate() {
+		return day;
 	}
 
 }

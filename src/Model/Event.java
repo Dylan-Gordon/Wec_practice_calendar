@@ -1,5 +1,5 @@
 package Model;
-
+import SharedObjects.*;
 
 public class Event {
 	private Date startDate;

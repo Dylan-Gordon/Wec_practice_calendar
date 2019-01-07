@@ -2,14 +2,13 @@ package View;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Model.Date;
+import SharedObjects.Date;
 
 @SuppressWarnings("serial")
 public class MonthView extends JPanel{
@@ -20,13 +19,12 @@ public class MonthView extends JPanel{
 	 * JLabel at top of panel 
 	 */
 	private JLabel monthLabel= new JLabel();
-	
+	private ArrayList<DayButton> dayButtonList = new ArrayList<>();
 	
 	/**
 	 * Constructor that creates the visible panel 
 	 */
 	public MonthView() { 
-		
 		 
 		setLayout(new GridLayout(6,7));
 		setPreferredSize(new Dimension(800,600));
@@ -52,12 +50,21 @@ public class MonthView extends JPanel{
 //		add(testButton);
 		
 		for(int i=0; i<6*7; i++) {
-			add(new DayButton(new Date(2019, 1, i)));
+			DayButton temp = new DayButton(new Date(2019, 1, i));
+			dayButtonList.add(temp);
+			add(temp);
 		}
 	}
 	
 	public void setMonthLabel(String s) {
 		monthLabel.setText(s);
 	}
+	
+	public void setDayButtonListeners(ActionListener e) {
+		for(DayButton dayButton : dayButtonList) {
+			dayButton.addActionListener(e);
+		}
+	}
+
 	
 }

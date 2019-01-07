@@ -28,7 +28,6 @@ public class GUI extends JFrame{
 	private MonthView monthPanel;
 	private WeekView weekPanel;
 	private DayView dayPanel;
-	private EventView eventPanel;
 
 	
 	public GUI() {
@@ -52,8 +51,6 @@ public class GUI extends JFrame{
 		dayPanel = new DayView(); 
 		cards.add(dayPanel, "DAYPANEL"); //the cardName
 		
-		eventPanel = new EventView(); 
-		cards.add(eventPanel, "EVENTPANEL"); //the cardName
 		
 		add(cards);
 				
@@ -65,6 +62,18 @@ public class GUI extends JFrame{
 
 	public ButtonPanel getButtonPanel() {
 		return buttonPanel;
+	}
+
+	public MonthView getMonthPanel() {
+		return monthPanel;
+	}
+
+	public WeekView getWeekPanel() {
+		return weekPanel;
+	}
+
+	public DayView getDayPanel() {
+		return dayPanel;
 	}
 
 	/**
