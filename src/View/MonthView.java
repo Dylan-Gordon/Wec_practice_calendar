@@ -58,12 +58,12 @@ public class MonthView extends JPanel{
 		int prevEndDate = 0;
 		for(int currentDate=0; currentDate<6*7; currentDate++) {
 			
-			/*
-			if(currentDate < JANUARY_START_DATE) {
+			
+			if(currentDate < Months.JANUARY_START_INDEX) {
 				DayButton temp = new DayButton(new Date(0, 0, 0));
 				dayButtonList.add(temp);
 				add(temp);
-			}*/
+			}
 			
 			
 			DayButton temp = new DayButton(new Date(2019, 1, currentDate));
