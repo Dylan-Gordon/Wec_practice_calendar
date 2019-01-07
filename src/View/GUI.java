@@ -31,6 +31,10 @@ public class GUI extends JFrame{
 		
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
+		
+		LookAndFeel.initLookAndFeel();
+		
+		
 		buttonPanel = new ButtonPanel();
 		add(buttonPanel);
 		
