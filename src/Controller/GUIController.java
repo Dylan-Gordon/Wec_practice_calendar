@@ -3,8 +3,11 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
+
 import Model.Calender;
 import SharedObjects.Date;
+import SharedObjects.Event;
 import View.*;
 
 /**
@@ -93,8 +96,16 @@ public class GUIController{
 	
 	
 	public void refreshDayView(Date d) {
-		gui.getDayPanel().setDay(d);
-		
+		DayView panel = gui.getDayPanel();
+		panel.setDay(d);
+		panel.setDayLabel();
+		//refresh the JList of events
+		DefaultListModel<Event> listModel = new DefaultListModel<>();
+		for(Event e : userCalender.getDayEvents(d)) {
+			listModel.addElement(e);
+		}
+		// then do the update: 
+		panel.updateEventsList(listModel);
 	}
 
 	
