@@ -37,6 +37,8 @@ public class GUIController{
 		//set other navigator buttons
 		g.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
 		g.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
+		g.getButtonPanel().setNextMonthButtonListener(new NextMonthButtonListener());
+		g.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
 		
 		userCalender = Calender.getInstance();
@@ -46,6 +48,24 @@ public class GUIController{
 		g.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
 	
+	
+	class NextMonthButtonListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			
+		}
+		
+	}
+	
+	class PrevMonthButtonListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			
+		}
+		
+	}
 	
 	/**
 	 * 
@@ -57,7 +77,8 @@ public class GUIController{
 		public void actionPerformed(ActionEvent arg0) {
 			
 			String eventName = JOptionPane.showInputDialog( "What's the events name?");
-			if(eventName == null) {
+			System.out.println(eventName);
+			if(eventName.isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
