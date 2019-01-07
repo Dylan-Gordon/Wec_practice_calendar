@@ -1,6 +1,3 @@
-
-
-
 //  public constants 
 public interface Months {
 	public int January = 1;
