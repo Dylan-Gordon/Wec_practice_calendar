@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-
+@SuppressWarnings("serial")
 public class GUI extends JFrame{
 	/**
 	 * The JPanel on the JFrame that can switch between different pages/cards

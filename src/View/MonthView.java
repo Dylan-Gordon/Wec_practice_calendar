@@ -1,12 +1,15 @@
 package View;
 import java.awt.Component;
+import SharedObjects.Months;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 import SharedObjects.Date;
 
@@ -21,12 +24,21 @@ public class MonthView extends JPanel{
 	private JLabel monthLabel= new JLabel();
 	private ArrayList<DayButton> dayButtonList = new ArrayList<>();
 	
+	private int currentMonth = Months.JANUARY;
+	private JPanel dayButtonsPanel;
+	
 	/**
 	 * Constructor that creates the visible panel 
 	 */
 	public MonthView() { 
-		 
-		setLayout(new GridLayout(6,7));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+		monthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		setMonthLabel(currentMonth+"");
+		add(monthLabel);
+		
+		dayButtonsPanel = new JPanel( new GridLayout(6, 7));
+		
 		setPreferredSize(new Dimension(800,600));
 		fillContentPane();
 	}
@@ -38,22 +50,28 @@ public class MonthView extends JPanel{
 	private void fillContentPane() {
 //		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
 //
-		monthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(monthLabel);
-//
-//		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
-//
-//		add(GuiUtilities.centeredJLabel("Month:")); // TODO name of month
-////		setupCourseList();
-//
-//		testButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-//		add(testButton);
+
+
+		//adding the day buttons
 		
-		for(int i=0; i<6*7; i++) {
-			DayButton temp = new DayButton(new Date(2019, 1, i));
+		int daysAdded = 0;
+		int prevEndDate = 0;
+		for(int currentDate=0; currentDate<6*7; currentDate++) {
+			
+			/*
+			if(currentDate < JANUARY_START_DATE) {
+				DayButton temp = new DayButton(new Date(0, 0, 0));
+				dayButtonList.add(temp);
+				add(temp);
+			}*/
+			
+			
+			DayButton temp = new DayButton(new Date(2019, 1, currentDate));
 			dayButtonList.add(temp);
-			add(temp);
+			dayButtonsPanel.add(temp);
+			
 		}
+		add(dayButtonsPanel);
 	}
 	
 	public void setMonthLabel(String s) {

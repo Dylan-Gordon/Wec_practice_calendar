@@ -83,7 +83,6 @@ public class GUIController{
 	}
 	
 	class showEventButtonListener implements ActionListener {
-
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Event events = gui.getDayPanel().getEventList().getSelectedValue();

@@ -1,22 +1,49 @@
 package SharedObjects;
 
-
+import java.util.HashMap;
+import java.util.Map;
 
 
 //  public constants 
-public interface Months {
-	public int JANUARY = 1;
-	public int FEBUARY = 2;
-	public int MARCH = 3;
-	public int APRIL = 4;
-	public int MAY = 5;
-	public int JUNE = 6;
-	public int JULY = 7;
-	public int AUGUST = 8;
-	public int SEPTEMBER = 9;
-	public int OCTOBER = 10;
-	public int NOVEMBER = 11;
-	public int DECEMBER = 12;
+abstract public class Months {
+	
+	static Map<Integer, String> nameOfMonth = new HashMap<>();
+	static Map<String, Integer> daysInMonth = new HashMap<>();
+
+	public static int JANUARY = 1;
+	public static int FEBRUARY = 2;
+	public static int MARCH = 3;
+	public static int APRIL = 4;
+	public static int MAY = 5;
+	public static int JUNE = 6;
+	public static int JULY = 7;
+	public static int AUGUST = 8;
+	public static int SEPTEMBER = 9;
+	public static int OCTOBER = 10;
+	public static int NOVEMBER = 11;
+	public static int DECEMBER = 12;
+	
+	public static void makeMonths() {
+		nameOfMonth.put(JANUARY,"January");
+		nameOfMonth.put(FEBRUARY,"February");
+		nameOfMonth.put(MARCH,"March");
+		nameOfMonth.put(APRIL,"April");
+		nameOfMonth.put(MAY,"May");
+		nameOfMonth.put(JUNE,"June");
+		nameOfMonth.put(JULY,"July");
+		nameOfMonth.put(AUGUST,"August");
+		nameOfMonth.put(SEPTEMBER,"September");
+		nameOfMonth.put(OCTOBER,"October");
+		nameOfMonth.put(NOVEMBER,"November");
+		nameOfMonth.put(DECEMBER,"December");
+		
+		daysInMonth.put(JANUARY, 31);
+		
+
+
+	}
+
+	
 	
 	public int JANUARY_DAYS = 31;
 	public int FEBUARY_DAYS = 28;
