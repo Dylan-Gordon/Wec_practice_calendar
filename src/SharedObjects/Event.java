@@ -1,4 +1,4 @@
-package Model;
+package SharedObjects;
 
 
 public class Event {
@@ -31,5 +31,7 @@ public class Event {
 	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
+	
+	
 	
 }
