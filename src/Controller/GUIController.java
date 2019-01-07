@@ -37,6 +37,21 @@ public class GUIController{
 		userCalender = Calender.getInstance();
 		
 		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
+		g.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
+	}
+	
+	/**
+	 * 
+	 *
+	 */
+	class addEventButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 	
 	/**
