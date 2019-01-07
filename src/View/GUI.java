@@ -14,6 +14,10 @@ public class GUI extends JFrame{
 	 * The different pages/panels that the JFrame will display
 	 */
 	private MonthView monthPanel;
+	private WeekView weekPanel;
+	private DayView dayPanel;
+	private EventView eventPanel;
+
 	
 	public GUI() {
 		setTitle("Calendar");
@@ -22,7 +26,15 @@ public class GUI extends JFrame{
 		
 		monthPanel = new MonthView(); 
 		cards.add(monthPanel, "MONTHPANEL"); //the cardName
-
+		
+		weekPanel = new WeekView(); 
+		cards.add(weekPanel, "WEEKPANEL"); //the cardName
+		
+		dayPanel = new DayView(); 
+		cards.add(dayPanel, "DAYPANEL"); //the cardName
+		
+		eventPanel = new EventView(); 
+		cards.add(eventPanel, "EVENTPANEL"); //the cardName
 		
 		add(cards);
 		pack();
