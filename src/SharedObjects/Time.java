@@ -27,6 +27,11 @@ public class Time implements Comparable<Object>{
 	}
 
 	@Override
+	public String toString() {
+		return hours + ":" + minutes;
+	}
+
+	@Override
 	public int compareTo(Object o) {
 		Time other = (Time)o;
 		if( this.hours == other.hours){
