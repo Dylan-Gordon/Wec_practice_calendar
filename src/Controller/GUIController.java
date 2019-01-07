@@ -8,6 +8,8 @@ import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
+import com.sun.javafx.runtime.VersionInfo;
+import com.sun.swing.internal.plaf.basic.resources.basic;
 
 import Model.Calendar;
 import SharedObjects.Date;
@@ -27,7 +29,6 @@ public class GUIController{
 		gui = g;
 
 		gui.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
-		gui.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
 		gui.getButtonPanel().setNextMonthButtonListener(new NextMonthButtonListener());
 		gui.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
@@ -43,25 +44,52 @@ public class GUIController{
 		public void actionPerformed(ActionEvent arg0) {
 			int currentYear = gui.getMonthPanel().getCurrentYear();
 			int currentMonth = gui.getMonthPanel().getCurrentMonth();
-			
+			int currentEndIndex = gui.getMonthPanel().getCurrentMonthEndIndex();
+			gui.getMonthPanel().setCurrentMonthIndex((currentEndIndex + 1)%7);
+
 			if(currentMonth!=Months.DECEMBER){
-				gui.getMonthPanel().setCurrentMonth(currentMonth++);
+				gui.getMonthPanel().setCurrentMonth(++currentMonth);
 			}
 			else {
-				gui.getMonthPanel().setCurrentYear(currentYear++);
+				gui.getMonthPanel().setCurrentYear(++currentYear);
 				gui.getMonthPanel().setCurrentMonth(Months.JANUARY);
-
 			}
+			refreshMonthView();
 		}
-		
 	}
 	
 	class PrevMonthButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			int currentYear = gui.getMonthPanel().getCurrentYear();
+			int currentMonth = gui.getMonthPanel().getCurrentMonth();
+			int currentStartIndex = gui.getMonthPanel().getCurrentMonthIndex();
 			
 			
+			if(currentMonth!=Months.JANUARY){
+				gui.getMonthPanel().setCurrentMonth(--currentMonth);
+			}
+			else {
+				gui.getMonthPanel().setCurrentYear(--currentYear);
+				gui.getMonthPanel().setCurrentMonth(Months.DECEMBER);
+			}
+			int newStartIndex = currentStartIndex-1;
+			newStartIndex -= Calendar.getInstance().getDaysInMonth().get(currentMonth);
+			newStartIndex %= 7;
+			if(newStartIndex<0) newStartIndex+=7;
+			newStartIndex++;
+			gui.getMonthPanel().setCurrentMonthIndex(newStartIndex);
+			refreshMonthView();
 		}
+		
+	}
+	
+	public void refreshMonthView() {
+		int currentMonth = gui.getMonthPanel().getCurrentMonth();
+		int currentYear = gui.getMonthPanel().getCurrentYear();
+		gui.getMonthPanel().setMonthLabel(Calendar.getInstance().getNameOfMonth().get(currentMonth) + " "+currentYear);
+		gui.getMonthPanel().getDayButtonsPanel().removeAll();
+		gui.getMonthPanel().makeButtonsPanel();
 		
 	}
 
@@ -157,10 +185,7 @@ public class GUIController{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(card.equals("MONTHPANEL")){
-//				refreshProfAssignmentPage(pg);
-			}
-			else if(card.equals("WEEKPANEL")){
-//				refreshProfCoursePage(pg);
+//				refreshDayView(d);
 			}
 			gui.setActiveCard(card);
 		}

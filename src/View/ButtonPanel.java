@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 public class ButtonPanel extends JPanel {
 	
 	private JButton monthButton = new JButton("Month View");
-	private JButton weekButton = new JButton("Week View");
 
 	private JButton prevMonthButton = new JButton("Previous month");
 	private JButton nextMonthButton = new JButton("Next Month");
@@ -20,10 +19,9 @@ public class ButtonPanel extends JPanel {
 		
 		setPreferredSize(new Dimension(800,40));
 		add(prevMonthButton);
-		add(Box.createRigidArea(new Dimension(180,0)));
+		add(Box.createRigidArea(new Dimension(90,0)));
 		add(monthButton);
-		add(weekButton);
-		add(Box.createRigidArea(new Dimension(180,0)));
+		add(Box.createRigidArea(new Dimension(90,0)));
 		add(nextMonthButton);
 	}
 	
@@ -38,9 +36,6 @@ public class ButtonPanel extends JPanel {
 	 * Helper functions for the CONTROLLER to initialize the listeners
 	 * @param e the actionListener
 	 */
-	public void setWeekButtonListener(ActionListener e) {
-		weekButton.addActionListener(e);
-	}
 
 	public void setPrevMonthButtonListener(ActionListener e) {
 		prevMonthButton.addActionListener(e);
