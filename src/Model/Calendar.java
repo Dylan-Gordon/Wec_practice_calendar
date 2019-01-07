@@ -17,8 +17,8 @@ public class Calendar {
 	private static Calendar instance = null;
 	private ArrayList<Event> events;
 	
-	private Map<Integer, String> nameOfMonth = new HashMap<>();
-	private Map<Integer, Integer> daysInMonth = new HashMap<>();
+	private static Map<Integer, String> nameOfMonth = new HashMap<>();
+	private static Map<Integer, Integer> daysInMonth = new HashMap<>();
 
 	
 	
