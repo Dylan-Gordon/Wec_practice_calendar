@@ -12,7 +12,7 @@ public class Calender {
 		events = new  ArrayList<Event>();
 	}
 
-	public Calender getInstance() {
+	public static Calender getInstance() {
 		if(instance == null)
 		{
 			instance = new Calender();
