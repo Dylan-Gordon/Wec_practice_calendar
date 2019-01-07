@@ -65,7 +65,9 @@ public class MonthView extends JPanel{
 		for(int currentDate=0; currentDate<6*7; currentDate++) {
 			
 			
+
 			if(currentDate < currentStartDate) {
+
 				DayButton temp = new DayButton(new Date(0, 0, 0));
 				dayButtonList.add(temp);
 				add(temp);
