@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -16,21 +17,26 @@ import SharedObjects.Date;
 @SuppressWarnings("serial")
 public class MonthView extends JPanel{
 	
-//	private Months = new Months()
-
 	/**
 	 * JLabel at top of panel 
 	 */
+	
+	private Calendar calendar;
+	
 	private JLabel monthLabel= new JLabel();
 	private ArrayList<DayButton> dayButtonList = new ArrayList<>();
 	
 	private int currentMonth = Months.JANUARY;
+	private int currentMonthIndex = Months.JANUARY_START_INDEX;
+	private int currentMonthEndIndex;
 	private JPanel dayButtonsPanel;
 	
 	/**
 	 * Constructor that creates the visible panel 
 	 */
 	public MonthView() { 
+		calendar = calendar.getInstance();
+		currentMonthEndIndex; = (currentMonthIndex + calendar.getDaysInMonth.get(currentMonth))%7;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		monthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -58,12 +64,12 @@ public class MonthView extends JPanel{
 		int prevEndDate = 0;
 		for(int currentDate=0; currentDate<6*7; currentDate++) {
 			
-			/*
-			if(currentDate < JANUARY_START_DATE) {
+			
+			if(currentDate < currentStartDate) {
 				DayButton temp = new DayButton(new Date(0, 0, 0));
 				dayButtonList.add(temp);
 				add(temp);
-			}*/
+			}
 			
 			
 			DayButton temp = new DayButton(new Date(2019, 1, currentDate));
