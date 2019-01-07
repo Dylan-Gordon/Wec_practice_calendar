@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.JList;
 
 import Model.Calender;
 import SharedObjects.Date;
@@ -38,6 +40,7 @@ public class GUIController{
 		
 		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
 		g.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
+		g.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
 	
 	/**
@@ -50,6 +53,17 @@ public class GUIController{
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			
+		}
+		
+	}
+	
+	class showEventButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Event events = gui.getDayPanel().getEventList().getSelectedValue();
+			
+			JOptionPane.showMessageDialog(null, events.getName() + "\n Date: " + events.getStartDate() + "\n Time: " + events.getStartTime() + "\n Length: " + events.getDuration());
 		}
 		
 	}
