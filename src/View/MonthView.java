@@ -28,6 +28,7 @@ public class MonthView extends JPanel{
 	private ArrayList<DayButton> dayButtonList = new ArrayList<>();
 	
 	private int currentMonth = Months.JANUARY;
+	private int currentYear = 2019;
 	private int currentMonthIndex = Months.JANUARY_START_INDEX;
 	private int currentMonthEndIndex;
 	private JPanel dayButtonsPanel;
@@ -76,7 +77,7 @@ public class MonthView extends JPanel{
 				temp.setEnabled(false);
 			}
 			else {
-				temp = new DayButton(new Date(2019, currentMonth, daysAdded + 1));
+				temp = new DayButton(new Date(currentYear, currentMonth, daysAdded + 1));
 				daysAdded++;
 				dayButtonList.add(temp);
 			}
@@ -94,6 +95,46 @@ public class MonthView extends JPanel{
 		for(DayButton dayButton : dayButtonList) {
 			dayButton.addActionListener(e);
 		}
+	}
+
+
+	public int getCurrentMonth() {
+		return currentMonth;
+	}
+
+
+	public void setCurrentMonth(int currentMonth) {
+		this.currentMonth = currentMonth;
+	}
+
+
+	public int getCurrentYear() {
+		return currentYear;
+	}
+
+
+	public void setCurrentYear(int currentYear) {
+		this.currentYear = currentYear;
+	}
+
+
+	public int getCurrentMonthIndex() {
+		return currentMonthIndex;
+	}
+
+
+	public void setCurrentMonthIndex(int currentMonthIndex) {
+		this.currentMonthIndex = currentMonthIndex;
+	}
+
+
+	public int getCurrentMonthEndIndex() {
+		return currentMonthEndIndex;
+	}
+
+
+	public void setCurrentMonthEndIndex(int currentMonthEndIndex) {
+		this.currentMonthEndIndex = currentMonthEndIndex;
 	}
 
 	
