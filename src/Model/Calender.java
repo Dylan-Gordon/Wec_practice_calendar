@@ -2,14 +2,11 @@ package Model;
 
 import java.util.ArrayList;
 import SharedObjects.Event;
-import SharedObjects.Date;
 import SharedObjects.Time;
+import SharedObjects.Date;
 
 
 //singleton
-import SharedObjects.*;
-
-
 
 public class Calender {
 
@@ -18,7 +15,7 @@ public class Calender {
 	
 	
 	private Calender() {
-		events = new  ArrayList<Event>();
+		events = new ArrayList<Event>();
 		
 		
 		//test some premade events		
