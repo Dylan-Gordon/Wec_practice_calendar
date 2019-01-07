@@ -7,13 +7,10 @@ import SharedObjects.Time;
 
 
 //singleton
-<<<<<<< HEAD
-=======
 import SharedObjects.*;
 
 
 
->>>>>>> 79d246625838066f536c85c16b2d003dd0e1c07c
 public class Calender {
 
 	private static Calender instance = null;

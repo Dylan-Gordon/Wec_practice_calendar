@@ -8,7 +8,6 @@ import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-import javax.swing.JList;
 
 import Model.Calender;
 import SharedObjects.Date;
