@@ -35,12 +35,14 @@ public class Event implements Comparable<Object>{
 	}
 
 	
+
 	public String getName() {
 		return name;
 	}
 	public void setName(String name){
 		this.name = name;
 	}
+
 
 	@Override
 	public String toString() {

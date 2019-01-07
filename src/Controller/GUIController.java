@@ -7,11 +7,13 @@ import java.util.Collections;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+
 import javax.swing.JList;
 
 import Model.Calender;
 import SharedObjects.Date;
 import SharedObjects.Event;
+import SharedObjects.Time;
 import View.*;
 
 /**
@@ -45,6 +47,7 @@ public class GUIController{
 		g.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
 	
+	
 	/**
 	 * 
 	 *
@@ -53,8 +56,29 @@ public class GUIController{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
 			
+			String eventName = JOptionPane.showInputDialog( "What's the events name?");
+			
+			String startTimeString = JOptionPane.showInputDialog( "What's the events startTime (hh:mm)?");
+			Time startTime = convertToTime(startTimeString);
+			System.out.println(startTime.getHours() + startTime.getMinutes());
+			
+			String durationString = JOptionPane.showInputDialog( "What's the events name (hh:mm)?");
+			Time duration =  convertToTime(durationString);
+			
+
+			Date currentDay = gui.getDayPanel().getDate();
+			
+			userCalender.addEvent(new Event(currentDay, startTime, duration, eventName));
+			
+			refreshEventList(currentDay, gui.getDayPanel());
+		}
+		
+		private Time convertToTime (String time) {
+			String[] parts = time.split(":");
+			Time returnVal = new Time(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+			
+			return returnVal;
 		}
 		
 	}
