@@ -3,6 +3,7 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Model.Calender;
 import View.GUI;
 
 /**
@@ -12,6 +13,7 @@ import View.GUI;
 public class GUIController{
 	
 	private GUI gui;
+	private Calender userCalender;
 
 	/**
 	 * constructor that inits the page and the socketCommunicator and sets all the listeners
@@ -27,6 +29,8 @@ public class GUIController{
 		g.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
 		g.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
 		g.getButtonPanel().setDayButtonListener(new CardChangerListener("DAYPANEL"));
+		
+		userCalender = Calender.getInstance();
 	}
 	
 	/**
