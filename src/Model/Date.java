@@ -11,7 +11,14 @@ public class Date {
 		this.month = month;
 		this.day = day;
 	}
-
+	
+	public boolean equals(Date comparer) {
+		return 
+		    this.year == comparer.getYear() && 
+			this.month == comparer.getMonth() &&
+			this.day == comparer.getDay();			
+	}
+	
 	public int getYear() {
 		return year;
 	}
