@@ -2,6 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 
+import SharedObjects.*;
+
 public class Calender {
 
 	private static Calender instance = null;
