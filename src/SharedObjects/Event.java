@@ -31,6 +31,12 @@ public class Event {
 	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
+
+	@Override
+	public String toString() {
+		return "Event [startDate=" + startDate + ", startTime=" + startTime + ", duration=" + duration + "]";
+	}
+	
 	
 	
 	

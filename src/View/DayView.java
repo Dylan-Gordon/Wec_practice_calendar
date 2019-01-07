@@ -49,11 +49,6 @@ public class DayView extends JPanel{
 		fillContentPane();
 	}
 	
-	public void setDay(Date d) {
-		day = d;
-		fillContentPane();
-	}
-	
 
 	/**
 	 * Helper method to add components to the JFrame
@@ -61,7 +56,7 @@ public class DayView extends JPanel{
 	private void fillContentPane() {
 
 		dayLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		dayLabel.setText(""+ day.getMonth() + "/" +day.getDay() + "/"+day.getYear());
+		setDayLabel();
 		add(dayLabel);
 		
 		setupEventsList();
@@ -114,6 +109,15 @@ public class DayView extends JPanel{
 	public void setNewEventButtonListener(ActionListener e) {
         addEventButton.addActionListener(e);
     }
+	
+
+	public void setDay(Date d) {
+		day = d;
+	}
+	public void setDayLabel() {
+		dayLabel.setText(""+ day.getMonth() + "/" +day.getDay() + "/"+day.getYear());
+	}
+	
 	
 
 	
