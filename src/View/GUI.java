@@ -3,11 +3,13 @@ import java.awt.Button;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Controller.GUIController;
+import javafx.scene.shape.Box;
 
 
 public class GUI extends JFrame{
@@ -33,7 +35,7 @@ public class GUI extends JFrame{
 		setTitle("Calendar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setLayout(new FlowLayout());
+		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
 		buttonPanel = new ButtonPanel();
 		add(buttonPanel);
@@ -54,6 +56,7 @@ public class GUI extends JFrame{
 		cards.add(eventPanel, "EVENTPANEL"); //the cardName
 		
 		add(cards);
+				
 		pack();
 		setResizable(false);
 		setLocationRelativeTo(null); // center the JFram

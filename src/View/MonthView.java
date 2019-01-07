@@ -9,15 +9,17 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Model.Date;
+
 @SuppressWarnings("serial")
 public class MonthView extends JPanel{
 	
-	private JButton testButton = new JButton("Test Button");
+//	private JButton testButton = new JButton("Test Button");
 
 	/**
 	 * JLabel at top of panel 
 	 */
-	private JLabel welcomeText= new JLabel();
+	private JLabel monthLabel= new JLabel();
 	
 	
 	/**
@@ -38,8 +40,8 @@ public class MonthView extends JPanel{
 	private void fillContentPane() {
 //		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
 //
-//		welcomeText.setAlignmentX(Component.CENTER_ALIGNMENT);
-//		add(welcomeText);
+		monthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		add(monthLabel);
 //
 //		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
 //
@@ -50,8 +52,12 @@ public class MonthView extends JPanel{
 //		add(testButton);
 		
 		for(int i=0; i<6*7; i++) {
-			add(new JButton(""+i));
+			add(new DayButton(new Date(2019, 1, i)));
 		}
+	}
+	
+	public void setMonthLabel(String s) {
+		monthLabel.setText(s);
 	}
 	
 }

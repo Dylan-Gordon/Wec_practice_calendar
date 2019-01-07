@@ -1,6 +1,7 @@
 package View;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.sql.Date;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -16,13 +17,15 @@ public class DayView extends JPanel{
 	/**
 	 * JLabel at top of panel 
 	 */
-	private JLabel welcomeText= new JLabel();
+	private JLabel dayLabel;
 	
+	private Date day;
 	
 	/**
 	 * Constructor that creates the visible panel 
 	 */
-	public DayView() { 
+	public DayView(Date d) { 
+		day = d;
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setPreferredSize(new Dimension(800,600));
 		fillContentPane();
@@ -33,10 +36,10 @@ public class DayView extends JPanel{
 	 * Helper method to add components to the JFrame
 	 */
 	private void fillContentPane() {
-		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
 
-		welcomeText.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(welcomeText);
+		dayLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		dayLabel.setText(""+ day.getMonth() + day.getDate() + day.getYear());
+		add(dayLabel);
 
 		add(Box.createRigidArea(new Dimension(0,10))); //empty spacing
 
