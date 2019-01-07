@@ -28,7 +28,7 @@ public class Time implements Comparable<Object>{
 
 	@Override
 	public String toString() {
-		return hours + ":" + minutes;
+		return hours + "hours, " + minutes + " minutes";
 	}
 
 	@Override
