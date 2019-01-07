@@ -67,19 +67,20 @@ public class MonthView extends JPanel{
 
 		//adding the day buttons
 		int daysAdded = 0;
+		int oldDays = Calendar.getInstance().getDaysInMonth().get((currentMonthIndex+11)%12);
+		oldDays = oldDays - currentMonthIndex + 1;
 		for(int currentDate=0; currentDate<6*7; currentDate++) {
 			
 			DayButton temp;
 			if(currentDate < currentMonthIndex) {	// Before month starts during first week
-
-				temp = new DayButton(new Date(0, 0, 0));
+				temp = new DayButton(new Date(0, 0, oldDays+currentDate));
 				temp.setEnabled(false);
 			}
 			else if(currentDate > (currentMonthIndex + calendar.getDaysInMonth().get(currentMonth)-1))
 			{
 		
 				// After month has completed during last week
-				temp = new DayButton(new Date(0, 0, 0));
+				temp = new DayButton(new Date(0, 0, currentDate - daysAdded - 1));
 				temp.setEnabled(false);
 			}
 			else {
