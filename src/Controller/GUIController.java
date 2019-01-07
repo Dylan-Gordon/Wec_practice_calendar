@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import Model.Calendar;
 import SharedObjects.Date;
 import SharedObjects.Event;
+import SharedObjects.Months;
 import SharedObjects.Time;
 import View.*;
 
@@ -25,26 +26,32 @@ public class GUIController{
 	public GUIController(GUI g) {
 		gui = g;
 
-		g.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
-		g.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
-		g.getButtonPanel().setNextMonthButtonListener(new NextMonthButtonListener());
-		g.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
+		gui.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
+		gui.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
+		gui.getButtonPanel().setNextMonthButtonListener(new NextMonthButtonListener());
+		gui.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
 		userCalender = Calendar.getInstance();
 		
-		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
-		g.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
-		g.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
+		gui.getMonthPanel().setDayButtonListeners(new DayButtonListener());
+		gui.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
+		gui.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
 	
-	
-<<<<<<< HEAD
-=======
 	class NextMonthButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			int currentYear = gui.getMonthPanel().getCurrentYear();
+			int currentMonth = gui.getMonthPanel().getCurrentMonth();
 			
-			
+			if(currentMonth!=Months.DECEMBER){
+				gui.getMonthPanel().setCurrentMonth(currentMonth++);
+			}
+			else {
+				gui.getMonthPanel().setCurrentYear(currentYear++);
+				gui.getMonthPanel().setCurrentMonth(Months.JANUARY);
+
+			}
 		}
 		
 	}
@@ -57,12 +64,7 @@ public class GUIController{
 		}
 		
 	}
-	
-	/**
-	 * 
-	 *
-	 */
->>>>>>> 47ca6998d0e7f3f158b2b2053e1a5b3ec2094ce5
+
 	class addEventButtonListener implements ActionListener {
 
 		@Override
