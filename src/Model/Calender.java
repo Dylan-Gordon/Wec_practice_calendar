@@ -1,14 +1,9 @@
 package Model;
 
-import SharedObjects.Date;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-//singleton
-=======
 import SharedObjects.*;
 
->>>>>>> 8fd92c8cec8b0102922dfebe1cf2e22066813d85
 public class Calender {
 
 	private static Calender instance = null;
