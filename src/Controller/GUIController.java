@@ -9,7 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
-import Model.Calender;
+import Model.Calendar;
 import SharedObjects.Date;
 import SharedObjects.Event;
 import SharedObjects.Time;
@@ -22,7 +22,7 @@ import View.*;
 public class GUIController{
 	
 	private GUI gui;
-	private Calender userCalender;
+	private Calendar userCalender;
 
 	/**
 	 * constructor that inits the page and the socketCommunicator and sets all the listeners
@@ -41,7 +41,7 @@ public class GUIController{
 		g.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
 		
-		userCalender = Calender.getInstance();
+		userCalender = Calendar.getInstance();
 		
 		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
 		g.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
