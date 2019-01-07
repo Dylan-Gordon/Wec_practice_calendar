@@ -98,7 +98,6 @@ public class GUIController{
 		public void actionPerformed(ActionEvent arg0) {
 			
 			String eventName = JOptionPane.showInputDialog( "What's the events name?");
-			System.out.println(eventName);
 			if(eventName.isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -169,6 +168,7 @@ public class GUIController{
 				DayButton dButton = (DayButton)obj;
 				gui.setActiveCard("DAYPANEL");
 				refreshDayView(dButton.getDate());
+				gui.getButtonPanel().showMonthButtons(false);
 			}
 
 		}
@@ -184,7 +184,7 @@ public class GUIController{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(card.equals("MONTHPANEL")){
-//				refreshDayView(d);
+				gui.getButtonPanel().showMonthButtons(true);
 			}
 			gui.setActiveCard(card);
 		}

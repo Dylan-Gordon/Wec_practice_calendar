@@ -45,4 +45,8 @@ public class ButtonPanel extends JPanel {
 		nextMonthButton.addActionListener(e);
 	}
 	
+	public void showMonthButtons(boolean b) {
+		prevMonthButton.setVisible(b);
+		nextMonthButton.setVisible(b);
+	}
 }

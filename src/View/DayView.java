@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-
+import Model.Calendar;
 import SharedObjects.Date;
 import SharedObjects.Event;
 
@@ -115,7 +115,7 @@ public class DayView extends JPanel{
 		day = d;
 	}
 	public void setDayLabel() {
-		dayLabel.setText(""+ day.getMonth() + "/" +day.getDay() + "/"+day.getYear());
+		dayLabel.setText(""+ Calendar.getInstance().getNameOfMonth().get(day.getMonth()) + " " +day.getDay() + ", "+day.getYear());
 	}
 	
 	public Date getDate() {

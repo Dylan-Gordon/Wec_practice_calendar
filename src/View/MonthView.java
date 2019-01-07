@@ -89,10 +89,7 @@ public class MonthView extends JPanel{
 				dayButtonList.add(temp);
 				if(currentDate+1 > currentMonthIndex + calendar.getDaysInMonth().get(currentMonth)-1) {
 					//today is the last day of the month 
-					System.out.println("currentMonthEndIndex currently = "+currentMonthEndIndex);
 					currentMonthEndIndex = (currentDate)%7;
-					System.out.println("chaning to = "+currentMonthEndIndex);
-
 				}
 			}
 			dayButtonsPanel.add(temp);
