@@ -107,9 +107,11 @@ public class GUIController{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			Event events = gui.getDayPanel().getEventList().getSelectedValue();
+			Event selectedEvent = gui.getDayPanel().getEventList().getSelectedValue();
+			if(selectedEvent != null) {
+				JOptionPane.showMessageDialog(null, selectedEvent.getName() + "\n Date: " + selectedEvent.getStartDate() + "\n Time: " + selectedEvent.getStartTime() + "\n Length: " + selectedEvent.getDuration());
+			}
 			
-			JOptionPane.showMessageDialog(null, events.getName() + "\n Date: " + events.getStartDate() + "\n Time: " + events.getStartTime() + "\n Length: " + events.getDuration());
 		}
 		
 	}
