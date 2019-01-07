@@ -3,7 +3,12 @@ package Model;
 import SharedObjects.Date;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 //singleton
+=======
+import SharedObjects.*;
+
+>>>>>>> 8fd92c8cec8b0102922dfebe1cf2e22066813d85
 public class Calender {
 
 	private static Calender instance = null;
@@ -26,11 +31,15 @@ public class Calender {
 	public ArrayList<Event> getDayEvents(Date givenDate) {
 		ArrayList<Event> foundEvents = new ArrayList<>();
 		for(int event = 0; event < this.events.size(); event ++) {
-			if(this.events.get(event).getStartDate() == givenDate) {
+			if(this.events.get(event).getStartDate().equals(givenDate)) {
 				foundEvents.add(this.events.get(event));
 			}
 		}
 		return foundEvents;
+	}
+	
+	public void addEvent(Event newEvent) {
+		events.add(newEvent);
 	}
 	
 }
