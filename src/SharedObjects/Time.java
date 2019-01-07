@@ -1,4 +1,4 @@
-package Model;
+package SharedObjects;
 
 public class Time {
 	private int hours = 0;
