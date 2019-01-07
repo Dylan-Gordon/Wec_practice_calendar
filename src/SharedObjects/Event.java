@@ -5,14 +5,17 @@ public class Event {
 	private Date startDate;
 	private Time startTime;
 	private Time duration;
+	private String name;
 	
-	public Event(Date startDate, Time startTime, Time duration) {
+	
+	
+	public Event(Date startDate, Time startTime, Time duration, String name) {
 		super();
 		this.startDate = startDate;
 		this.startTime = startTime;
 		this.duration = duration;
+		this.name = name;
 	}
-	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -31,7 +34,12 @@ public class Event {
 	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	
 }
