@@ -118,7 +118,9 @@ public class DayView extends JPanel{
 		dayLabel.setText(""+ day.getMonth() + "/" +day.getDay() + "/"+day.getYear());
 	}
 	
-	
+	public Date getDate() {
+		return day;
+	}
 
 	
 }
