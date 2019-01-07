@@ -8,8 +8,6 @@ import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-import com.sun.javafx.runtime.VersionInfo;
-import com.sun.swing.internal.plaf.basic.resources.basic;
 
 import Model.Calendar;
 import SharedObjects.Date;
@@ -90,7 +88,8 @@ public class GUIController{
 		gui.getMonthPanel().setMonthLabel(Calendar.getInstance().getNameOfMonth().get(currentMonth) + " "+currentYear);
 		gui.getMonthPanel().getDayButtonsPanel().removeAll();
 		gui.getMonthPanel().makeButtonsPanel();
-		
+		gui.getMonthPanel().setDayButtonListeners(new DayButtonListener());
+
 	}
 
 	class addEventButtonListener implements ActionListener {

@@ -29,7 +29,7 @@ public class MonthView extends JPanel{
 	
 	private int currentMonth = Months.JANUARY;
 	private int currentYear = 2019;
-	private int currentMonthIndex = Months.JANUARY_START_INDEX;
+	private int currentMonthIndex = Months.JANUARY_START_INDEX; //day of the week
 	private int currentMonthEndIndex;
 	private JPanel dayButtonsPanel;
 	
