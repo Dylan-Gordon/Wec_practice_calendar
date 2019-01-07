@@ -2,9 +2,13 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+
+import javax.swing.JList;
 
 import Model.Calender;
 import SharedObjects.Date;
@@ -40,6 +44,7 @@ public class GUIController{
 		
 		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
 		g.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
+		g.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
 	
 	
@@ -78,6 +83,17 @@ public class GUIController{
 		
 	}
 	
+	class showEventButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Event events = gui.getDayPanel().getEventList().getSelectedValue();
+			
+			JOptionPane.showMessageDialog(null, events.getName() + "\n Date: " + events.getStartDate() + "\n Time: " + events.getStartTime() + "\n Length: " + events.getDuration());
+		}
+		
+	}
+	
 	/**
 	 * Inner class listener for dayButtons on MonthlyView
 	 */
@@ -89,7 +105,7 @@ public class GUIController{
 			if( obj instanceof DayButton) {
 				DayButton dButton = (DayButton)obj;
 				gui.setActiveCard("DAYPANEL");
-				
+				refreshDayView(dButton.getDate());
 			}
 
 		}
@@ -111,7 +127,7 @@ public class GUIController{
 //				refreshProfCoursePage(pg);
 			}
 			else if(card.equals("DAYPANEL")){
-//				fillHomePageCourseList(pg.getProfHomePagePanel()); // update/refresh the course list
+//				refreshDayView(); 
 			}
 			gui.setActiveCard(card);
 		}
@@ -124,10 +140,17 @@ public class GUIController{
 		panel.setDay(d);
 		panel.setDayLabel();
 		//refresh the JList of events
+		refreshEventList(d, panel);
+	}
+
+
+
+	private void refreshEventList(Date d, DayView panel) {
 		DefaultListModel<Event> listModel = new DefaultListModel<>();
-		for(Event e : userCalender.getDayEvents(d)) {
-			listModel.addElement(e);
-		}
+		ArrayList<Event> sortedList = userCalender.getDayEvents(d);
+		Collections.sort(sortedList);
+		for(Object object : sortedList)
+			listModel.addElement((Event) object);
 		// then do the update: 
 		panel.updateEventsList(listModel);
 	}

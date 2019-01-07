@@ -1,6 +1,7 @@
 package SharedObjects;
 
-public class Time {
+
+public class Time implements Comparable<Object>{
 	private int hours = 0;
 	private int minutes = 0;	
 
@@ -24,6 +25,17 @@ public class Time {
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
 	}
-	
+
+	@Override
+	public int compareTo(Object o) {
+		Time other = (Time)o;
+		if( this.hours == other.hours){
+			return this.minutes - other.minutes;
+		}
+		else{
+			return this.hours - other.hours;
+		}		
+	}
+
 	
 }
