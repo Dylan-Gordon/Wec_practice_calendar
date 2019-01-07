@@ -32,6 +32,4 @@ public class Event {
 		this.duration = duration;
 	}
 	
-	
-	
 }
