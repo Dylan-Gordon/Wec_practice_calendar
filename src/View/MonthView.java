@@ -97,5 +97,45 @@ public class MonthView extends JPanel{
 		}
 	}
 
+
+	public int getCurrentMonth() {
+		return currentMonth;
+	}
+
+
+	public void setCurrentMonth(int currentMonth) {
+		this.currentMonth = currentMonth;
+	}
+
+
+	public int getCurrentYear() {
+		return currentYear;
+	}
+
+
+	public void setCurrentYear(int currentYear) {
+		this.currentYear = currentYear;
+	}
+
+
+	public int getCurrentMonthIndex() {
+		return currentMonthIndex;
+	}
+
+
+	public void setCurrentMonthIndex(int currentMonthIndex) {
+		this.currentMonthIndex = currentMonthIndex;
+	}
+
+
+	public int getCurrentMonthEndIndex() {
+		return currentMonthEndIndex;
+	}
+
+
+	public void setCurrentMonthEndIndex(int currentMonthEndIndex) {
+		this.currentMonthEndIndex = currentMonthEndIndex;
+	}
+
 	
 }
