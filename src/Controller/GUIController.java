@@ -18,7 +18,7 @@ import View.*;
 
 
 public class GUIController{
-	
+
 	private GUI gui;
 	private Calendar userCalender;
 
@@ -31,12 +31,12 @@ public class GUIController{
 		gui.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
 		userCalender = Calendar.getInstance();
-		
+
 		gui.getMonthPanel().setDayButtonListeners(new DayButtonListener());
 		gui.getDayPanel().setNewEventButtonListener(new addEventButtonListener());
 		gui.getDayPanel().setViewEventInfoButtonListener(new showEventButtonListener());
 	}
-	
+
 	class NextMonthButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -55,15 +55,15 @@ public class GUIController{
 			refreshMonthView();
 		}
 	}
-	
+
 	class PrevMonthButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			int currentYear = gui.getMonthPanel().getCurrentYear();
 			int currentMonth = gui.getMonthPanel().getCurrentMonth();
 			int currentStartIndex = gui.getMonthPanel().getCurrentMonthIndex();
-			
-			
+
+
 			if(currentMonth!=Months.JANUARY){
 				gui.getMonthPanel().setCurrentMonth(--currentMonth);
 			}
@@ -79,9 +79,9 @@ public class GUIController{
 			gui.getMonthPanel().setCurrentMonthIndex(newStartIndex);
 			refreshMonthView();
 		}
-		
+
 	}
-	
+
 	public void refreshMonthView() {
 		int currentMonth = gui.getMonthPanel().getCurrentMonth();
 		int currentYear = gui.getMonthPanel().getCurrentYear();
@@ -96,32 +96,33 @@ public class GUIController{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
-			String eventName = JOptionPane.showInputDialog( "What's the events name?");
-			if(eventName.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.ERROR_MESSAGE);
-				return;
-			}
-			
-			String startTimeString = JOptionPane.showInputDialog( "What's the events start time (hh:mm)?");
-			Time startTime = convertToTime(startTimeString);
-			if(startTime == null) {
-				return;
-			}
-			
-			String durationString = JOptionPane.showInputDialog( "What's the events duration (hh:mm)?");
-			Time duration =  convertToTime(durationString);
-			if(duration == null) {
-				return;
-			}
-			
-			Date currentDay = gui.getDayPanel().getDate();
-			
-			userCalender.addEvent(new Event(currentDay, startTime, duration, eventName));
-			refreshEventList(currentDay, gui.getDayPanel());
 
+			String eventName = JOptionPane.showInputDialog( "What's the events name?");
+			if(eventName!=null) {
+				if(eventName.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+
+				String startTimeString = JOptionPane.showInputDialog( "What's the events start time (hh:mm)?");
+				Time startTime = convertToTime(startTimeString);
+				if(startTime == null) {
+					return;
+				}
+
+				String durationString = JOptionPane.showInputDialog( "What's the events duration (hh:mm)?");
+				Time duration =  convertToTime(durationString);
+				if(duration == null) {
+					return;
+				}
+
+				Date currentDay = gui.getDayPanel().getDate();
+
+				userCalender.addEvent(new Event(currentDay, startTime, duration, eventName));
+				refreshEventList(currentDay, gui.getDayPanel());
+			}
 		}
-		
+
 		private Time convertToTime (String time) {
 			Time returnVal = null;
 			try {
@@ -137,13 +138,13 @@ public class GUIController{
 			catch (ArrayIndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(null, "Improper time format", "Error", JOptionPane.ERROR_MESSAGE);
 			}
-			
-			
+
+
 			return returnVal;
 		}
-		
+
 	}
-	
+
 	class showEventButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -151,16 +152,16 @@ public class GUIController{
 			if(selectedEvent != null) {
 				JOptionPane.showMessageDialog(null, selectedEvent.getName() + "\n Date: " + selectedEvent.getStartDate() + "\n Time: " + selectedEvent.getStartTime() + "\n Length: " + selectedEvent.getDuration());
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * Inner class listener for dayButtons on MonthlyView
 	 */
 	class DayButtonListener implements ActionListener {
-	
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Object obj = e.getSource();
@@ -191,9 +192,9 @@ public class GUIController{
 			gui.setActiveCard(card);
 		}
 	} //end of inner class ChagneCardListener
-	
-	
-	
+
+
+
 	public void refreshDayView(Date d) {
 		DayView panel = gui.getDayPanel();
 		panel.setDay(d);
@@ -214,6 +215,6 @@ public class GUIController{
 		panel.updateEventsList(listModel);
 	}
 
-	
+
 }
 

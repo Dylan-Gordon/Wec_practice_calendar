@@ -83,7 +83,6 @@ public class MonthView extends JPanel{
 		
 				// After month has completed during last week
 				temp = new DayButton(new Date(0, 0, currentDate - daysAdded - currentMonthIndex + 1));
-				System.out.println("Days Added: " + daysAdded + ", currentDate: " + currentDate);
 				temp.setEnabled(false);
 			}
 			else {
