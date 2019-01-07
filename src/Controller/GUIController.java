@@ -167,8 +167,9 @@ public class GUIController{
 			if( obj instanceof DayButton) {
 				DayButton dButton = (DayButton)obj;
 				gui.setActiveCard("DAYPANEL");
+				gui.getButtonPanel().showMonthViewButton(true);
 				refreshDayView(dButton.getDate());
-				gui.getButtonPanel().showMonthButtons(false);
+				gui.getButtonPanel().showMonthPrevNextButtons(false);
 			}
 
 		}
@@ -184,7 +185,8 @@ public class GUIController{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(card.equals("MONTHPANEL")){
-				gui.getButtonPanel().showMonthButtons(true);
+				gui.getButtonPanel().showMonthPrevNextButtons(true);
+				gui.getButtonPanel().showMonthViewButton(false);
 			}
 			gui.setActiveCard(card);
 		}

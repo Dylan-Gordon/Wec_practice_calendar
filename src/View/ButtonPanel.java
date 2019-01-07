@@ -20,6 +20,7 @@ public class ButtonPanel extends JPanel {
 		setPreferredSize(new Dimension(800,40));
 		add(prevMonthButton);
 		add(Box.createRigidArea(new Dimension(90,0)));
+		monthButton.setVisible(false);
 		add(monthButton);
 		add(Box.createRigidArea(new Dimension(90,0)));
 		add(nextMonthButton);
@@ -45,8 +46,11 @@ public class ButtonPanel extends JPanel {
 		nextMonthButton.addActionListener(e);
 	}
 	
-	public void showMonthButtons(boolean b) {
+	public void showMonthPrevNextButtons(boolean b) {
 		prevMonthButton.setVisible(b);
 		nextMonthButton.setVisible(b);
+	}
+	public void showMonthViewButton(boolean b) {
+		monthButton.setVisible(b);
 	}
 }
