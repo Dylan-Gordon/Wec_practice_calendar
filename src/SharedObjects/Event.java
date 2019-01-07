@@ -6,8 +6,7 @@ public class Event implements Comparable<Object>{
 	private Time startTime;
 	private Time duration;
 	private String name;
-	
-	
+
 	
 	public Event(Date startDate, Time startTime, Time duration, String name) {
 		super();

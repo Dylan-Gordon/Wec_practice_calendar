@@ -1,16 +1,12 @@
 package Model;
 
 import java.util.ArrayList;
+import SharedObjects.Event;
+import SharedObjects.Date;
+import SharedObjects.Time;
 
-<<<<<<< HEAD
 
 //singleton
-import SharedObjects.*;
-
-=======
-import SharedObjects.*;
-
->>>>>>> 7498f20f380ffa22f05961f593c3539db42a4ab4
 public class Calender {
 
 	private static Calender instance = null;
@@ -21,12 +17,12 @@ public class Calender {
 		events = new  ArrayList<Event>();
 		
 		
-		//test some premade events
+		//test some premade events		
 		events.add(new Event(new Date(2019, 1, 7), new Time(10, 0), new Time(1, 30), "TestEvent1"));
 		events.add(new Event(new Date(2019, 1, 7), new Time(19, 0), new Time(1, 20), "TestEvent2"));
 		events.add(new Event(new Date(2019, 1, 7), new Time(12, 20), new Time(2, 30), "TestEvent3"));
 		events.add(new Event(new Date(2019, 1, 8), new Time(11, 50), new Time(0, 30), "TestEvent4"));
-		events.add(new Event(new Date(2019, 1, 9), new Time(2, 10), new Time(1, 50), "TestEvent1=5"));
+		events.add(new Event(new Date(2019, 1, 9), new Time(2, 10), new Time(1, 50), "TestEvent5"));
 
 	}
 

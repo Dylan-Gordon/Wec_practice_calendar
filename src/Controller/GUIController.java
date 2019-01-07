@@ -36,7 +36,7 @@ public class GUIController{
 		//set other navigator buttons
 		g.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
 		g.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
-		g.getButtonPanel().setDayButtonListener(new CardChangerListener("DAYPANEL"));
+
 		
 		userCalender = Calender.getInstance();
 		
@@ -101,9 +101,6 @@ public class GUIController{
 			}
 			else if(card.equals("WEEKPANEL")){
 //				refreshProfCoursePage(pg);
-			}
-			else if(card.equals("DAYPANEL")){
-//				refreshDayView(); 
 			}
 			gui.setActiveCard(card);
 		}

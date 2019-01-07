@@ -1,15 +1,10 @@
 package View;
-import java.awt.Button;
 import java.awt.CardLayout;
-import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Controller.GUIController;
-import javafx.scene.shape.Box;
 
 
 public class GUI extends JFrame{
