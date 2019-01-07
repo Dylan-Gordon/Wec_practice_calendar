@@ -1,5 +1,6 @@
 package SharedObjects;
 
+import java.text.DecimalFormat;
 
 public class Time implements Comparable<Object>{
 	private int hours = 0;
@@ -24,6 +25,12 @@ public class Time implements Comparable<Object>{
 
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
+	}
+
+	@Override
+	public String toString() {
+		DecimalFormat preferredFormat = new DecimalFormat("00");
+		return hours + ":" + preferredFormat.format(minutes);
 	}
 
 	@Override
