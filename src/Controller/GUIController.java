@@ -2,6 +2,8 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.DefaultListModel;
 
@@ -65,7 +67,7 @@ public class GUIController{
 			if( obj instanceof DayButton) {
 				DayButton dButton = (DayButton)obj;
 				gui.setActiveCard("DAYPANEL");
-				
+				refreshDayView(dButton.getDate());
 			}
 
 		}
@@ -87,7 +89,7 @@ public class GUIController{
 //				refreshProfCoursePage(pg);
 			}
 			else if(card.equals("DAYPANEL")){
-//				fillHomePageCourseList(pg.getProfHomePagePanel()); // update/refresh the course list
+//				refreshDayView(); 
 			}
 			gui.setActiveCard(card);
 		}
@@ -100,10 +102,17 @@ public class GUIController{
 		panel.setDay(d);
 		panel.setDayLabel();
 		//refresh the JList of events
+		refreshEventList(d, panel);
+	}
+
+
+
+	private void refreshEventList(Date d, DayView panel) {
 		DefaultListModel<Event> listModel = new DefaultListModel<>();
-		for(Event e : userCalender.getDayEvents(d)) {
-			listModel.addElement(e);
-		}
+		ArrayList<Event> sortedList = userCalender.getDayEvents(d);
+		Collections.sort(sortedList);
+		for(Object object : sortedList)
+			listModel.addElement((Event) object);
 		// then do the update: 
 		panel.updateEventsList(listModel);
 	}

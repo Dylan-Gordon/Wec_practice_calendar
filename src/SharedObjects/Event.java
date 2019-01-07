@@ -1,7 +1,7 @@
 package SharedObjects;
 
 
-public class Event {
+public class Event implements Comparable<Object>{
 	private Date startDate;
 	private Time startTime;
 	private Time duration;
@@ -34,22 +34,22 @@ public class Event {
 	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
-<<<<<<< HEAD
 
-	@Override
-	public String toString() {
-		return "Event [startDate=" + startDate + ", startTime=" + startTime + ", duration=" + duration + "]";
-	}
 	
-	
-=======
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(String name){
 		this.name = name;
 	}
->>>>>>> eba361202c3f3bd1be5d1a478648a5d722c12240
-	
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	@Override
+	public int compareTo(Object o) {
+		return this.startTime.compareTo(((Event)o).startTime);
+	}
 	
 }

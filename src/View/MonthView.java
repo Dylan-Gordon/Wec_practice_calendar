@@ -13,7 +13,7 @@ import SharedObjects.Date;
 @SuppressWarnings("serial")
 public class MonthView extends JPanel{
 	
-//	private JButton testButton = new JButton("Test Button");
+//	private Months = new Months()
 
 	/**
 	 * JLabel at top of panel 
