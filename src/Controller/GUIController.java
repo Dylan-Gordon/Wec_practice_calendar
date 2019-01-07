@@ -15,32 +15,21 @@ import SharedObjects.Event;
 import SharedObjects.Time;
 import View.*;
 
-/**
- * Sets all the button listeners on the Prof GUIs
- * @author 	Ross Bartlett, Antoine Bizon
- */
+
 public class GUIController{
 	
 	private GUI gui;
 	private Calendar userCalender;
 
-	/**
-	 * constructor that inits the page and the socketCommunicator and sets all the listeners
-	 * @param pg the GUI
-	 * @param c the socketCommunicator
-	 */
-	public GUIController(GUI g) {//, ClientSocketCommunicator c){
-		gui = g;
-		//		setHomepageButtons(pg);
-		//		setBackButtons(pg);
 
-		//set other navigator buttons
+	public GUIController(GUI g) {
+		gui = g;
+
 		g.getButtonPanel().setMonthButtonListener(new CardChangerListener("MONTHPANEL"));
 		g.getButtonPanel().setWeekButtonListener(new CardChangerListener("WEEKPANEL"));
 		g.getButtonPanel().setNextMonthButtonListener(new NextMonthButtonListener());
 		g.getButtonPanel().setPrevMonthButtonListener(new PrevMonthButtonListener());
 
-		
 		userCalender = Calendar.getInstance();
 		
 		g.getMonthPanel().setDayButtonListeners(new DayButtonListener());
@@ -49,6 +38,8 @@ public class GUIController{
 	}
 	
 	
+<<<<<<< HEAD
+=======
 	class NextMonthButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -71,6 +62,7 @@ public class GUIController{
 	 * 
 	 *
 	 */
+>>>>>>> 47ca6998d0e7f3f158b2b2053e1a5b3ec2094ce5
 	class addEventButtonListener implements ActionListener {
 
 		@Override
