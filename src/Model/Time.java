@@ -1,3 +1,4 @@
+package Model;
 
 public class Time {
 	private int hours = 0;
