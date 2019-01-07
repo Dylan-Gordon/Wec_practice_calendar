@@ -33,4 +33,8 @@ public class Calender {
 		return foundEvents;
 	}
 	
+	public void addEvent(Event newEvent) {
+		events.add(newEvent);
+	}
+	
 }
